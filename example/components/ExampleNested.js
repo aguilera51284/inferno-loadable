@@ -1,4 +1,4 @@
-import React from 'react';
+import Inferno from 'inferno';
 
 export default function ExampleNested() {
   return <p>Hello from a nested loadable component!</p>;

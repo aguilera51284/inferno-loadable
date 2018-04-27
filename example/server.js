@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+import Inferno from 'inferno';
+import {renderToString} from 'inferno-server';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack'
 import App from './components/App';
@@ -11,7 +11,7 @@ const app = express();
 
 app.get('/', (req, res) => {
   let modules = [];
-  let html = ReactDOMServer.renderToString(
+  let html = renderToString(
     <Loadable.Capture report={moduleName => modules.push(moduleName)}>
       <App/>
     </Loadable.Capture>

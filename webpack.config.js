@@ -22,12 +22,12 @@ module.exports = {
             babelrc: false,
             presets: [
               ['es2015', { modules: false }],
-              'react',
             ],
             plugins: [
               'syntax-dynamic-import',
               'transform-class-properties',
               'transform-object-assign',
+              ["inferno", { "imports": true }],
               require.resolve('./babel'),
             ],
           }

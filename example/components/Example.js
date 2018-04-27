@@ -1,4 +1,4 @@
-import React from 'react';
+import Inferno from 'inferno';
 import Loadable from 'react-loadable';
 import Loading from './Loading';
 import delay from '../utils/delay';

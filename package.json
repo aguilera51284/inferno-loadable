@@ -18,12 +18,17 @@
     "prepublish": "yarn build"
   },
   "dependencies": {
+    "inferno": "^5.0.4",
+    "inferno-component": "^5.0.4",
+    "inferno-create-element": "^5.0.4",
+    "inferno-server": "^5.0.4",
     "prop-types": "^15.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-loader": "^7.1.2",
     "babel-plugin-dynamic-import-node": "^1.1.0",
+    "babel-plugin-inferno": "^5.0.1",
     "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -32,6 +37,7 @@
     "babel-preset-react": "^6.24.1",
     "express": "^4.16.1",
     "flow-bin": "^0.41.0",
+    "inferno-test-utils": "^5.0.4",
     "jest": "^21.2.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

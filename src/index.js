@@ -1,7 +1,7 @@
 'use strict';
-const React = require('react');
+const Inferno = require('inferno');
 const PropTypes = require('prop-types');
-
+const {createElement} = require('inferno-create-element');
 const ALL_INITIALIZERS = [];
 const READY_INITIALIZERS = [];
 
@@ -9,7 +9,6 @@ function isWebpackReady(getModuleIds) {
   if (typeof __webpack_modules__ !== 'object') {
     return false;
   }
-
   return getModuleIds().every(moduleId => {
     return (
       typeof moduleId !== 'undefined' &&
@@ -88,7 +87,7 @@ function resolve(obj) {
 }
 
 function render(loaded, props) {
-  return React.createElement(resolve(loaded), props);
+  return createElement(resolve(loaded), props);
 }
 
 function createLoadableComponent(loadFn, options) {
@@ -125,7 +124,7 @@ function createLoadableComponent(loadFn, options) {
     });
   }
 
-  return class LoadableComponent extends React.Component {
+  return class LoadableComponent extends Inferno.Component {
     constructor(props) {
       super(props);
       init();
@@ -211,7 +210,7 @@ function createLoadableComponent(loadFn, options) {
 
     render() {
       if (this.state.loading || this.state.error) {
-        return React.createElement(opts.loading, {
+        return createElement(opts.loading, {
           isLoading: this.state.loading,
           pastDelay: this.state.pastDelay,
           timedOut: this.state.timedOut,
@@ -240,7 +239,11 @@ function LoadableMap(opts) {
 
 Loadable.Map = LoadableMap;
 
-class Capture extends React.Component {
+function isNullOrUndef(children) {
+  return children === null || children === undefined;
+}
+
+class Capture extends Inferno.Component {
   static propTypes = {
     report: PropTypes.func.isRequired,
   };
@@ -260,7 +263,7 @@ class Capture extends React.Component {
   }
 
   render() {
-    return React.Children.only(this.props.children);
+    return isNullOrUndef(this.props.children);
   }
 }
 

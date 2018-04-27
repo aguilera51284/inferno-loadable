@@ -2,6 +2,8 @@
 
 > A higher order component for loading components with dynamic imports.
 
+Ported from react-loadable.
+
 ## Install
 
 ```sh
